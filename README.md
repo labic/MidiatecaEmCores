@@ -47,20 +47,20 @@ As visualizações HTML geradas são baseadas na ordem das cores escolhida pelo 
 
 Cada visualização apresenta uma interface interativa que permite visualizar as cores dominantes das imagens e obter informações adicionais ao passar o mouse sobre cada cor.
 
-## Metodologia de Desenvolvimento
+##   Metodologia de Desenvolvimento
 
-Este projeto foi desenvolvido utilizando a linguagem Python e a biblioteca CSV para processar os arquivos de entrada e gerar as visualizações HTML. A metodologia de desenvolvimento seguiu as seguintes etapas:
+Este projeto foi desenvolvido utilizando a linguagem Python e as bibliotecas CSV e PIL para processar os arquivos de entrada e gerar as visualizações HTML. A metodologia de desenvolvimento seguiu as seguintes etapas:
 
-1.  Carregar os dados das cores dominantes e das imagens a partir dos arquivos CSV.
-2.  Solicitar ao usuário a ordem desejada das cores.
-3.  Gerar o código HTML correspondente a cada opção de cor.
-4.  Salvar os arquivos HTML para cada opção de cor.
+1.  Desenvolvimento do código `midiatecaAPI_Thumb.py`: Nesta etapa, foi criado o código responsável por fazer o download das imagens de cada item do acervo da Midiateca e gerar um arquivo CSV contendo o código da imagem, a URL da thumbnail e a URL do item no acervo.
+    
+2.  Utilização do código `colors.py`: Nesta etapa, foi utilizado o código responsável por extrair a cor dominante de cada imagem. O código percorre as imagens baixadas, utilizando a biblioteca ColorThief, e gera um arquivo CSV associando o código de cada imagem à sua cor dominante.
+    
+3.  Desenvolvimento do código `MidiatecaEmCores.py`: Nesta etapa, foi criado o código responsável pela construção do HTML de cada visualização. O código lê os arquivos CSV gerados anteriormente, seleciona a ordem desejada das cores e gera o código HTML correspondente para cada opção de cor.
+
+Essa metodologia permitiu a construção do projeto de forma modular, onde cada código desempenha uma função específica, desde o download das imagens até a geração das visualizações HTML. Dessa forma, foi possível obter as cores dominantes das imagens e apresentá-las em uma interface visual atraente.
 
 O projeto também inclui um diagrama organizacional que ilustra a estrutura da Midiateca em Cores e uma seção de rodapé com os logotipos das instituições envolvidas.
 
-## Contribuição
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir problemas (issues) ou enviar solicitações de pull (pull requests) para melhorar este projeto.
 
 ## Sobre
 
