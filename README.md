@@ -10,7 +10,7 @@ Certifique-se de ter os seguintes requisitos instalados:
 
 ### Clone este repositório em sua máquina local:
 
-    git clone https://github.com/seu-usuario/nome-do-repositorio.git
+    git clone https://github.com/labic/MidiatecaEmCores
 
 ### Navegue até o diretório do projeto:
 
@@ -36,7 +36,7 @@ As visualizações HTML serão geradas no diretório do projeto.
 -   `imagensthumb.csv`: Arquivo CSV contendo informações das imagens.
 -   `imagensthumb2/`: Diretório de destino para salvar as imagens baixadas.
 
-## Visualizações HTML
+# Visualizações HTML
 
 As visualizações HTML geradas são baseadas na ordem das cores escolhida pelo usuário. São gerados quatro arquivos HTML correspondentes a diferentes ordenações das cores:
 
