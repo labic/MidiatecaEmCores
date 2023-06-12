@@ -20,6 +20,14 @@ Certifique-se de ter os seguintes requisitos instalados:
 
     pip install -r requirements.txt
 
+### Execute o código Python para coletar as imagens da Midiateca Capixaba:
+
+    python midiatecaAPI_Thumb.py
+    
+### Execute o código em Python para obter a cor dominante de cada imagem
+
+    python colors.py
+
 ### Execute o código Python para gerar as visualizações HTML:
 
     python MidiatecaEmCores.py
