@@ -1,80 +1,75 @@
 # Midiateca em Cores
-Este repositório contém um código Python que gera visualizações HTML de cores dominantes a partir de arquivos CSV. Essas visualizações são usadas na Midiateca em Cores, uma aplicação web para explorar e navegar por imagens com base em suas cores dominantes.
 
-## Pré-requisitos
-Certifique-se de ter os seguintes requisitos instalados:
+Este repositório contém um código em Python chamado `Midiateca_em_cores.py` que realiza o download de imagens da Midiateca do Espírito Santo e extrai as cores dominantes dessas imagens. Em seguida, o código gera um arquivo HTML interativo que visualiza as imagens organizadas por cores dominantes em diferentes ordens.
 
- - Python 3.x
+## Requisitos
 
-## Como usar
+Certifique-se de ter os seguintes requisitos instalados no seu ambiente de desenvolvimento antes de executar o código:
 
-### Clone este repositório em sua máquina local:
+-   Python 3.x
+-   Bibliotecas Python: `requests`, `json`, `os`, `urllib.parse`, `colorthief`, `tqdm`, `PIL`, `csv`
 
-    git clone https://github.com/labic/MidiatecaEmCores
-
-### Navegue até o diretório do projeto:
-
-    cd MidiatecaEmCores
-
-### Instale as dependências necessárias:
+Você pode instalar essas dependências usando o comando:
 
     pip install -r requirements.txt
 
-### Execute o código Python para coletar as imagens da Midiateca Capixaba:
+## Uso
 
-    python midiatecaAPI_Thumb.py
+1.  Clone o repositório para o seu ambiente de desenvolvimento:
+
+    `git clone https://github.com/labic/MidiatecaEmCores`
+
+2.  Navegue até o diretório clonado:
+
+    `cd midiateca-em-cores`
+
+3.  Execute o código Python:
+
+    `python Midiateca_em_cores.py`
+
+4.  O código fará o download das imagens da Midiateca através da API e extrairá as cores dominantes. Em seguida, ele gerará os arquivos HTML de visualização das imagens organizadas por cores.
     
-### Execute o código em Python para obter a cor dominante de cada imagem
-
-    python colors.py
-
-### Execute o código Python para gerar as visualizações HTML:
-
-    python MidiatecaEmCores.py
-
-As visualizações HTML serão geradas no diretório do projeto.
-
-
-## Arquivos
-
--   `MidiatecaEmCores.py`: Contém o código Python responsável por gerar as visualizações HTML.
--   `colors.py`: Contém o código Python responsável por extrair as cores dominantes das imagens.
--   `midiatecaAPI_Thumb.py`: Contém o código Python para baixar as imagens da Midiateca usando a API.
--   `cores_dominantes.csv`: Arquivo CSV contendo as cores dominantes das imagens.
--   `imagensthumb.csv`: Arquivo CSV contendo informações das imagens.
--   `imagensthumb2/`: Diretório de destino para salvar as imagens baixadas.
-
-# Visualizações HTML
-
-As visualizações HTML geradas são baseadas na ordem das cores escolhida pelo usuário. São gerados quatro arquivos HTML correspondentes a diferentes ordenações das cores:
-
--   `visualization1.html`: Visualização das cores ordenadas por temperatura.
--   `visualization2.html`: Visualização das cores ordenadas por matiz.
--   `visualization3.html`: Visualização das cores ordenadas por brilho.
--   `visualization4.html`: Visualização das cores ordenadas por saturação.
-
-Cada visualização apresenta uma interface interativa que permite visualizar as cores dominantes das imagens e obter informações adicionais ao passar o mouse sobre cada cor.
-
-##   Metodologia de Desenvolvimento
-
-Este projeto foi desenvolvido utilizando a linguagem Python e as bibliotecas CSV e PIL para processar os arquivos de entrada e gerar as visualizações HTML. A metodologia de desenvolvimento seguiu as seguintes etapas:
-
-1.  Desenvolvimento do código `midiatecaAPI_Thumb.py`: Nesta etapa, foi criado o código responsável por fazer o download das imagens de cada item do acervo da Midiateca e gerar um arquivo CSV contendo o código da imagem, a URL da thumbnail e a URL do item no acervo.
+5.  Abra o arquivo HTML de visualização desejado em um navegador da web para visualizar as imagens organizadas por cores.
     
-2.  Utilização do código `colors.py`: Nesta etapa, foi utilizado o código responsável por extrair a cor dominante de cada imagem. O código percorre as imagens baixadas, utilizando a biblioteca ColorThief, e gera um arquivo CSV associando o código de cada imagem à sua cor dominante.
+## Arquivos gerados
+
+-   `imagens_link.csv`: um arquivo CSV que contém os detalhes das imagens, como nome, URL do documento e URL da página do item.
+-   `cores_dominantes.csv`: um arquivo CSV que contém as cores dominantes extraídas das imagens, junto com seus valores RGB e hexadecimal.
+-   `visualization1.html`, `visualization2.html`, `visualization3.html`, `visualization4.html`: arquivos HTML que mostram as imagens organizadas por cores dominantes em diferentes ordens.
+
+## Estrutura do código
+
+O código `Midiateca_em_cores.py` possui as seguintes seções principais:
+
+1.  Importação de bibliotecas: Importa todas as bibliotecas necessárias para o código.
     
-3.  Desenvolvimento do código `MidiatecaEmCores.py`: Nesta etapa, foi criado o código responsável pela construção do HTML de cada visualização. O código lê os arquivos CSV gerados anteriormente, seleciona a ordem desejada das cores e gera o código HTML correspondente para cada opção de cor.
+2.  Configurações: Define as configurações iniciais, como o intervalo de páginas para baixar as imagens, a lista de URLs contendo JSON e o diretório de destino para salvar as imagens.
+    
+3.  Função `midiateca_api()`: Implementa o processo de download das imagens da Midiateca e a extração das informações relevantes de cada imagem. As informações são salvas em um arquivo CSV chamado `imagens_link.csv`.
+    
+4.  Função `colors()`: Extrai as cores dominantes de todas as imagens baixadas usando a biblioteca `ColorThief`. As informações são salvas em um arquivo CSV chamado `cores_dominantes.csv`.
+    
+5.  Função `hex_to_hsl()`: Converte uma cor em formato HEX para formato HSL (Matiz, Saturação, Luminosidade).
+    
+6.  Função `generate_html_visualization()`: Gera um código HTML interativo para visualizar as imagens organizadas de acordo com diferentes critérios de ordenação das cores dominantes. O código HTML é gerado em arquivos separados para cada critério de ordenação.
 
-Essa metodologia permitiu a construção do projeto de forma modular, onde cada código desempenha uma função específica, desde o download das imagens até a geração das visualizações HTML. Dessa forma, foi possível obter as cores dominantes das imagens e apresentá-las em uma interface visual atraente.
+## Metodologia de Desenvolvimento
 
-O projeto também inclui um diagrama organizacional que ilustra a estrutura da Midiateca em Cores e uma seção de rodapé com os logotipos das instituições envolvidas.
+A metodologia de desenvolvimento utilizada neste projeto foi a seguinte:
 
+1.  **Análise de requisitos:** Compreender os requisitos do projeto e identificar as necessidades específicas, como download de imagens, extração de cores e visualização.
+2.  **Pesquisa e seleção de bibliotecas:** Realizar pesquisa para encontrar bibliotecas Python adequadas para realizar as tarefas necessárias, como solicitações HTTP, manipulação de imagens e extração de cores.
+3.  **Configuração do ambiente:** Instalar as bibliotecas necessárias usando o gerenciador de pacotes `pip` e configurar o ambiente de desenvolvimento.
+4.  **Desenvolvimento incremental:** Dividir o projeto em etapas menores e implementar cada etapa incrementalmente, testando e depurando conforme avançava.
+5.  **Design da pagina:** Analisar a identidade visual da Midiateca e desenvolver um modelo HTML compativel com o codigo.
+6.  **Integração e teste:** Integração das diferentes partes do projeto e realização de testes para verificar se o sistema está funcionando corretamente.
+7.  **Otimização e aprimoramento:** Identificar possíveis melhorias no desempenho, usabilidade e qualidade do código, implementando as alterações necessárias.
 
 ## Sobre
 
 Este projeto foi desenvolvido como parte da Midiateca Capixaba, uma iniciativa da Secretaria de Cultura do Espirito Santo em parceira com o Laboratório de Estudos sobre Imagem e Cibercultura (Labic) e a Fundação de Amparo à Pesquisa e Inovação do Espírito Santo (FAPES).
 
--   Midiateca em Cores: [Midiateca em Cores](https://www.labic.net/pulsao/visualization1.html)
--   Midiateca Capixaba: [https://midiateca.es.gov.br/](https://midiateca.es.gov.br/)
--   Labic: [https://labic.net/](https://labic.net/)
--   FAPES: [https://fapes.es.gov.br/](https://fapes.es.gov.br/)
+-   Midiateca em Cores:  [Midiateca em Cores](https://www.labic.net/pulsao/visualization1.html)
+-   Midiateca Capixaba:  [https://midiateca.es.gov.br/](https://midiateca.es.gov.br/)
+-   Labic:  [https://labic.net/](https://labic.net/)
+-   FAPES:  [https://fapes.es.gov.br/](https://fapes.es.gov.br/)
