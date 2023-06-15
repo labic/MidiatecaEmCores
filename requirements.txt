@@ -1,3 +1,8 @@
-colorthief
-Pillow
 requests
+json
+os
+urllib.parse
+colorthief
+tqdm
+Pillow
+csv
