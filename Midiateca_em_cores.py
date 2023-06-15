@@ -259,17 +259,8 @@ print('2 - Não')
 optionapi = input('Digite a opção:')
 if optionapi == '1':
     midiateca_api()
-    print('Fazer analise de cor?')
-    print('1 - Sim')
-    print('2 - Não')
-    optioncolor = input('Digite a opção:')
-    if optioncolor == '1':
-        colors()
-        generate_html_visualization(arquivo_saida_colors, csv_path)
-    elif optioncolor == '2':
-        generate_html_visualization(arquivo_saida_colors, csv_path)
-    else:
-        print('Opção invalida')
+    colors()
+    generate_html_visualization(arquivo_saida_colors, csv_path)
 elif optionapi == '2':
     print('Fazer analise de cor?')
     print('1 - Sim')
