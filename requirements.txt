@@ -1,9 +1,5 @@
-requests
-json
-os
-urllib.parse
-colorthief
-tqdm
-Pillow
-csv
-pandas
+colorthief==0.2.1
+pandas==2.0.1
+Pillow==9.5.0
+requests==2.31.0
+tqdm==4.65.0
