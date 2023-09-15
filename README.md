@@ -7,7 +7,7 @@ Este repositório contém um código em Python chamado `Midiateca_em_cores.py` q
 Certifique-se de ter os seguintes requisitos instalados no seu ambiente de desenvolvimento antes de executar o código:
 
 -   Python 3.x
--   Bibliotecas Python: `requests`, `json`, `os`, `urllib.parse`, `colorthief`, `tqdm`, `PIL`, `csv`, `pandas`
+-   Bibliotecas Python: `colorthief==0.2.1`, `pandas==2.0.1`, `Pillow==9.5.0`, `requests==2.31.0`, `tqdm==4.65.0`
 
 Você pode instalar essas dependências usando o comando:
 
