@@ -7,7 +7,7 @@ Este repositório contém um código em Python chamado `Midiateca_em_cores.py` q
 Certifique-se de ter os seguintes requisitos instalados no seu ambiente de desenvolvimento antes de executar o código:
 
 -   Python 3.x
--   Bibliotecas Python: `requests`, `json`, `os`, `urllib.parse`, `colorthief`, `tqdm`, `PIL`, `csv`
+-   Bibliotecas Python: `requests`, `json`, `os`, `urllib.parse`, `colorthief`, `tqdm`, `PIL`, `csv`, `pandas`
 
 Você pode instalar essas dependências usando o comando:
 
@@ -33,9 +33,8 @@ Você pode instalar essas dependências usando o comando:
     
 ## Arquivos gerados
 
--   `imagens_link.csv`: um arquivo CSV que contém os detalhes das imagens, como nome, URL do documento e URL da página do item.
--   `cores_dominantes.csv`: um arquivo CSV que contém as cores dominantes extraídas das imagens, junto com seus valores RGB e hexadecimal.
--   `visualization1.html`, `visualization2.html`, `visualization3.html`, `visualization4.html`: arquivos HTML que mostram as imagens organizadas por cores dominantes em diferentes ordens.
+-   `dataimages.csv`: um arquivo CSV que contém os dados extraidos da API e a cor dominante extraida pelo script.
+-   `MidiatecaEmCores.html`: arquivo HTML que mostram as imagens organizadas por cores dominantes.
 
 ## Estrutura do código
 
@@ -45,13 +44,13 @@ O código `Midiateca_em_cores.py` possui as seguintes seções principais:
     
 2.  Configurações: Define as configurações iniciais, como o intervalo de páginas para baixar as imagens, a lista de URLs contendo JSON e o diretório de destino para salvar as imagens.
     
-3.  Função `midiateca_api()`: Implementa o processo de download das imagens da Midiateca e a extração das informações relevantes de cada imagem. As informações são salvas em um arquivo CSV chamado `imagens_link.csv`.
+3.  Função `midiateca_api()`: Implementa o processo de download das imagens da Midiateca e a extração das informações relevantes de cada imagem. As informações são salvas em um arquivo CSV chamado `dataimages.csv`.
     
-4.  Função `colors()`: Extrai as cores dominantes de todas as imagens baixadas usando a biblioteca `ColorThief`. As informações são salvas em um arquivo CSV chamado `cores_dominantes.csv`.
+4.  Função `colors()`: Extrai as cores dominantes de todas as imagens baixadas usando a biblioteca `ColorThief`. As informações são salvas no arquivo `dataimage.csv`.
     
 5.  Função `hex_to_hsl()`: Converte uma cor em formato HEX para formato HSL (Matiz, Saturação, Luminosidade).
     
-6.  Função `generate_html_visualization()`: Gera um código HTML interativo para visualizar as imagens organizadas de acordo com diferentes critérios de ordenação das cores dominantes. O código HTML é gerado em arquivos separados para cada critério de ordenação.
+6.  Função `generate_html_visualization()`: Gera um código HTML interativo para visualizar as imagens organizadas de acordo com diferentes critérios de ordenação das cores dominantes.
 
 ## Metodologia de Desenvolvimento
 
@@ -69,7 +68,7 @@ A metodologia de desenvolvimento utilizada neste projeto foi a seguinte:
 
 Este projeto foi desenvolvido como parte da Midiateca Capixaba, uma iniciativa da Secretaria de Cultura do Espirito Santo em parceira com o Laboratório de Estudos sobre Imagem e Cibercultura (Labic) e a Fundação de Amparo à Pesquisa e Inovação do Espírito Santo (FAPES).
 
--   Midiateca em Cores:  [Midiateca em Cores](https://www.labic.net/pulsao/visualization1.html)
+-   Midiateca em Cores:  [Midiateca em Cores](https://www.labic.net/mvm/MidiatecaEmCores.html)
 -   Midiateca Capixaba:  [https://midiateca.es.gov.br/](https://midiateca.es.gov.br/)
 -   Labic:  [https://labic.net/](https://labic.net/)
 -   FAPES:  [https://fapes.es.gov.br/](https://fapes.es.gov.br/)
